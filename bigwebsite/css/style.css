@@ -3,11 +3,67 @@ body {
   min-width: 2500px;
   overflow: auto;
   background-image: url("bg.png");
-  padding: 10%;
+  background-size: cover;
+  margin: 7%;  
+}
 
-  font-size: 60px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  color: rgb(106, 245, 255);
-  text-decoration-line: overline underline;
-  text-decoration-color: rgb(255, 0, 157);
+h1{
+    text-decoration: wavy;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    font-weight: 600;
+    text-align: center;
+    font-size: 300px;
+    color: rgb(55, 0, 255);
+}
+
+p {
+    background-color: rgba(114, 56, 1, 0.336);
+    font-size: 60px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-weight: 400;
+    color: rgb(106, 245, 255);
+    text-decoration-line: overline underline;
+    text-decoration-color: rgb(255, 0, 157);
+    border: 10px solid rgba(251, 255, 0, 0.527);
+    padding: 5%;
+    background-image: url("rat.png");
+    background-size: 5%;
+}
+
+.rat_bg{
+    background-image: url("rat2.png");
+    background-size: 20%;
+}
+
+#rat_text{
+    background-color: rgba(255, 0, 0, 0.39);
+    text-align: center;
+}
+
+#ratGIF img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2500px;
+    width: 2500px;
+    opacity: 30%;
+    
+}
+
+#secretRat img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1000px;
+    width: 1000px;
+}
+
+span {
+    color: red;
+    border: 4px dotted blue;
+    margin: 30px;
+    font-size: 150%;
+    font-style: italic;
+    background-color: rgb(67, 255, 9);
+    font-family: Wingdings, fantasy;
 }
