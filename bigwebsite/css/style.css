@@ -1,0 +1,13 @@
+body {
+  min-height: 2500px;
+  min-width: 2500px;
+  overflow: auto;
+  background-image: url("bg.png");
+  padding: 10%;
+
+  font-size: 60px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: rgb(106, 245, 255);
+  text-decoration-line: overline underline;
+  text-decoration-color: rgb(255, 0, 157);
+}
