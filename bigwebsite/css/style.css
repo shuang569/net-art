@@ -1,9 +1,10 @@
 body {
-  min-height: 2500px;
-  min-width: 2500px;
+  min-height: 3000px;
+  min-width: 3000px;
   overflow: auto;
   background-image: url("bg.png");
   background-size: cover;
+  background-repeat: repeat;
   margin: 7%;  
 }
 
@@ -48,14 +49,6 @@ p {
     width: 2500px;
     opacity: 30%;
     
-}
-
-#secretRat img{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 1000px;
-    width: 1000px;
 }
 
 span {
