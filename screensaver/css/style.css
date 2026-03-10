@@ -45,16 +45,17 @@ img.star2 {
     content: url("star1.png");
     position: fixed;
     opacity: 0;
-    animation: shoot 3s ease-out infinite;
+    animation-play-state: paused;
     animation-delay: 0s; }
 
 @keyframes shoot {
     0% {opacity: 1;
-        transform: rotate(25deg) translateX(0px) scale(0.6);}
+        transform: rotate(18deg) translateX(0px) scale(0.6);}
     30% {opacity: 0;
-        transform: rotate(25deg) translateX(320px) scale(0.1);}
+        transform: rotate(25deg) translateX(350px) scale(0.1);}
     100% {opacity: 0;
-        transform: rotate(25deg) translateX(320px) scale(0.1);} }
+        transform: rotate(25deg) translateX(350px) scale(0.1);} }
 
 body:hover .shooting-star {
-    animation: shoot 0.8s ease-out forwards; }
+    animation-play-state: running;
+    animation: shoot 1.5s ease-in infinite; }
