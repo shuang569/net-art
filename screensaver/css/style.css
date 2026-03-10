@@ -49,8 +49,9 @@ img.star2 {
     animation-delay: 0s; }
 
 @keyframes shoot {
-    0% {opacity: 1;
+    0% {opacity: 0;
         transform: rotate(18deg) translateX(0px) scale(0.6);}
+    10% {opacity: 1; }
     30% {opacity: 0;
         transform: rotate(25deg) translateX(350px) scale(0.1);}
     100% {opacity: 0;
