@@ -40,3 +40,21 @@ img.star2 {
     content: url("star1.png");
     animation: pulse 1.5s ease-in-out infinite;
     position: absolute; }
+
+.shooting-star {
+    content: url("star1.png");
+    position: fixed;
+    opacity: 0;
+    animation: shoot 3s ease-out infinite;
+    animation-delay: 0s; }
+
+@keyframes shoot {
+    0% {opacity: 1;
+        transform: rotate(25deg) translateX(0px) scale(0.6);}
+    30% {opacity: 0;
+        transform: rotate(25deg) translateX(320px) scale(0.1);}
+    100% {opacity: 0;
+        transform: rotate(25deg) translateX(320px) scale(0.1);} }
+
+body:hover .shooting-star {
+    animation: shoot 0.8s ease-out forwards; }
