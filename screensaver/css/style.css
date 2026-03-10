@@ -1,0 +1,42 @@
+* { 
+    margin: 0;}
+    
+body{
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgb(12, 16, 36));
+    background-color:rgb(7, 7, 12); }
+
+/** star pngs are from AdobeStock */
+img.star1 {
+    content: url("thin star.png");
+    animation: pulse 2s ease-in-out infinite;
+    position: absolute; }
+
+@keyframes pulse {
+    0% {transform: scale(80%);}
+    50% {transform: scale(5%);}
+    100% {transform: scale(80%);} }
+
+img.star1:hover {
+    transition: transform 0.3s ease;
+    animation: glint 1.5s ease infinite;
+    animation-delay: 0s }
+
+img.star1:active {
+    animation: spin 1s lienar infinite;
+    transition: transform 0.2s ease;
+    animation-delay: 0s }
+
+@keyframes glint {
+    0% {transform: scale(100%);}
+    50% {transform: scale(150%);}
+    100% {transform: scale(100%);} }
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}}
+
+img.star2 {
+    content: url("star1.png");
+    animation: pulse 1.5s ease-in-out infinite;
+    position: absolute; }
