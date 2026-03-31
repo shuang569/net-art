@@ -4,6 +4,7 @@
   padding: 0px;
   font-family: 'Noto Sans', sans-serif;
   background-color: rgb(33, 33, 33);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,38 +27,83 @@ body {
   height: 100vh;
 }
 
-.prompt{
+.ask_box{
     text-align: left;
     color: rgb(168, 168, 168);
     padding: 12px;
     border-radius: 20px;
-    background-color: #ffffff30;}
+    background-color: #ffffff30;
+}
 
-.work_title {
-    text-align: right;
+.ask_box a{
+    text-decoration: none;
+    color: inherit;
+    background: none;
+}
+
+.prompt {
     color: white;
+    width: fit-content;
     background-color: rgb(62, 62, 62);
-    padding: 6px 6px;
+    padding: 10px;
     margin: 14px;
     border-radius: 16px;
+    margin: 6px;
+}
+
+.prompt p{
+    text-align: left;
+    background: none;
+    color: inherit;
+    margin: 0;
+    padding-left: 0;
+}
+
+.prompt h3{
+    text-align: left;
+    margin: 0;
+    padding-left: 0;
+    color: white;
+}
+
+.prompt a{
+    color: white;
+    text-decoration-line: underline; 
+}
+
+.prompt img{
+    float: block;
+    margin: 0;
+}
+
+.right {
+    align-self: flex-end;
+}
+
+.left {
+    align-self: flex-start;
+    background: none;
+    text-align: left;
 }
 
 .main {
     flex: 1;
     margin: 10px 17%;
     padding: 24px 16px;
+    display: flex;       
+    flex-direction: column;
 }
 
-h1{
-  text-align:center;
+h1, h3{
+  text-align: center;
   color: #ffffff;
   margin: inherit;
   padding: inherit;
 }
 
-h2,h3,p {
-  text-align:center;
-  color: #ffffff;
+h2,p {
+  text-align: justify;
+  color: #c9c9c9;
   margin: inherit;
   padding: inherit;
 }
@@ -81,13 +127,18 @@ img {
     margin: 6px;
     background: inherit;}
 
-.sidebar nav h5{
+.sidebar nav h4{
     color: rgb(168, 168, 168);
     background: none;
     font-style: normal;
     font-size: 12px;
     margin: 8px;
 }
+
+.sidebar p{
+    background: none;
+}
+
 .sidebar nav a {
     display: block;
     padding: 10px 10px;
