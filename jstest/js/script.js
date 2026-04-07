@@ -14,6 +14,6 @@ button.addEventListener("click", function() {
 button2.addEventListener("click", function() {
   document.body.style.backgroundColor = "orange";
   pClass.style.color = "green";
-  pID.style.cssText = "color: lime; font-family: Comic Sans MS', 'Comic Sans', cursive;";
+  pID.style.cssText = "color: lime; font-family: 'Comic Sans MS', 'Comic Sans', cursive;";
   pID.innerHTML = "Orange button";
 });
