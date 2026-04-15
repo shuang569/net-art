@@ -9,12 +9,6 @@ const colors = ["#272f3d", "#b99667", "#e7de87", "#815847"];
 let colorIndex = 0;
 let degrees = 0;
 
-function rotateHand() {
-    degrees += 1;
-    hand.style.transform = `rotate(${degrees}deg)`;
-    requestAnimationFrame(rotateHand);
-}
-
 clock.addEventListener("click", function () {
     degrees += 90;
     hand.style.transform = `rotate(${degrees}deg)`;
@@ -41,7 +35,7 @@ clock.addEventListener("click", function () {
         topIcon.classList.toggle("glow");
         console.log("180 degrees");
         break;
-    case 270:
+    case 270: 
         rightIcon.classList.toggle("glow");
         console.log("270 degrees");
         break;
