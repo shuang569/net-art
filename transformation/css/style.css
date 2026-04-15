@@ -10,6 +10,7 @@ body {
     align-items: center;
     min-height: 100vh;
     font-family: sans-serif;
+    transition: background-color 0.4s ease;
 }
 
 .shape {
@@ -40,35 +41,53 @@ body {
     position: absolute;
     width: 80px;
     transform-origin: 50% 17.3%;  
-    top: 42.0%;
-    left: 42.344%;
+    top: 41.4%;
+    left: 41.9%;
+    transition: transform 0.3s ease;
+    z-index: 3;
+}
+
+.gear {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    z-index: 1;
+
+    filter:
+        invert(1)
+        brightness(.25)
+        sepia(1)
+        saturate(500%)
+        hue-rotate(10deg)
+        contrast(1.1);
 }
 
 .dot {
     position: absolute;
     width: 40px;
     height: 40px;
-    background: white;
+    background: #eeeeee;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #eeeeee;
 }
 
-/* Top */
+/* dot stuff */
 .dot.top {
     top: -4%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* Right */
 .dot.right {
     top: 50%;
     right: -4%;
     transform: translate(50%, -50%);
-    background: linear-gradient(to top, black 50%, white 50%);
+    background: linear-gradient(to top, black 50%, #eeeeee 50%);
 }
 
-/* Bottom */
 .dot.bottom {
     bottom: -4%;
     left: 50%;
@@ -76,12 +95,11 @@ body {
     background-color: black;
 }
 
-/* Left */
 .dot.left {
     top: 50%;
     left: -4%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to top, black 50%, white 50%);
+    background: linear-gradient(to top, black 50%, #eeeeee 50%);
 }
 
 .dot.border {
@@ -91,7 +109,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: none;
-    border: 2px solid white;
+    border: 2px solid #d4d4d4;
 }
 
 .dot.icon {
@@ -140,4 +158,16 @@ body {
         saturate(1000%)
         hue-rotate(90deg)
         brightness(1.2);
+}
+
+.icon.glow img {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+.mini-circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #b17b1893;
 }
