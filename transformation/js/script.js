@@ -5,7 +5,7 @@ const topIcon = document.querySelector(".dot.top.icon");
 const leftIcon = document.querySelector(".dot.left.icon");
 const rightIcon = document.querySelector(".dot.right.icon");
 const bottomIcon = document.querySelector(".dot.bottom.icon");
-const colors = ["#272f3d", "#b99667", "#e7de87", "#815847"];
+const colors = ["#272f3d", "#b19157", "#dbd27f", "#815847"];
 let colorIndex = 0;
 let degrees = 0;
 
