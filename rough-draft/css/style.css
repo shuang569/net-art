@@ -4,13 +4,17 @@
     box-sizing: border-box; }
 
 body {
-    background: #4a5568;
+    background: #080808;
+    /* background-image: url("starry bg.jpeg"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: sans-serif;
-    transition: background-color 0.4s ease;
+    transition: background-image 0.4s ease;
 }
 
 .shape {
@@ -30,7 +34,6 @@ body {
     position: relative;
     width: 520px;
     height: 520px;
-    border: 20px solid #272E3E;
 
     display: flex;
     justify-content: center;
@@ -39,11 +42,27 @@ body {
 
 .clock-hand {
     position: absolute;
-    width: 80px;
+    width: 95px;
     transform-origin: 50% 17.3%;  
-    top: 41.4%;
-    left: 41.9%;
+    top: 40.6%;
+    left: 40.7%;
     transition: transform 0.3s ease;
+    z-index: 3;
+}
+
+.smallclock-hand {
+    position: absolute;
+    width: 70px;
+    transform-origin: 50% 17.3%;  
+    top: 43.3%;
+    left: 43.2%;
+    transition: transform 0.3s ease;
+    z-index: 3;
+}
+
+.marks {
+    position: absolute;
+    width: 539px; 
     z-index: 3;
 }
 
@@ -52,7 +71,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.3s ease;
+    transform-origin: 50% 50%; 
+    transition: transform 0.1s ease;
     z-index: 1;
     opacity: 0.8;
 
@@ -171,3 +191,69 @@ body {
     border-radius: 50%;
     border: 4px solid #b17b1893;
 }
+
+.screensaver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgb(12, 16, 36));
+    background-color: rgb(7, 7, 12);
+    overflow: hidden;
+}
+
+img.star1 {
+    content: url("thin star.png");
+    animation: pulse 2s ease-in-out infinite;
+    position: absolute; }
+
+@keyframes pulse {
+    0% {transform: scale(80%);}
+    50% {transform: scale(5%);}
+    100% {transform: scale(80%);} }
+
+img.star1:hover {
+    transition: transform 0.3s ease;
+    animation: glint 1.5s ease infinite;
+    animation-delay: 0s }
+
+img.star1:active {
+    animation: spin 1s lienar infinite;
+    transition: transform 0.2s ease;
+    animation-delay: 0s }
+
+@keyframes glint {
+    0% {transform: scale(100%);}
+    50% {transform: scale(150%);}
+    100% {transform: scale(100%);} }
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}}
+
+img.star2 {
+    content: url("star1.png");
+    animation: pulse 1.5s ease-in-out infinite;
+    position: absolute; }
+
+.shooting-star {
+    content: url("star1.png");
+    position: fixed;
+    opacity: 0;
+    animation: shoot 1.5s ease-in infinite;
+    animation-delay: 0s; }
+
+@keyframes shoot {
+    0% {opacity: 0;
+        transform: rotate(18deg) translateX(0px) scale(0.6);}
+    10% {opacity: 1; }
+    30% {opacity: 0;
+        transform: rotate(25deg) translateX(350px) scale(0.1);}
+    100% {opacity: 0;
+        transform: rotate(25deg) translateX(350px) scale(0.1);} }
+
+body:hover .shooting-star {
+    animation-play-state: running;
+    animation: shoot 1.5s ease-in infinite; }
