@@ -48,15 +48,24 @@ function updateClock() {
     rightIcon.classList.remove("glow");
     bottomIcon.classList.remove("glow");
     leftIcon.classList.remove("glow");
+    bottomIcon.style.border = "2px solid #b17b1893";
+    topIcon.style.border = "2px solid #b17b1893";
+    rightIcon.style.border = "2px solid #b17b1893";
+    leftIcon.style.border = "2px solid #b17b1893";
+    bottomIcon.style.border = "2px solid #b17b1893";
 
     if (hour >= 21 || hour < 5) {
         bottomIcon.classList.add("glow");
+        bottomIcon.style.border = "1px solid white";
     } else if (hour >= 5 && hour < 11) {
         leftIcon.classList.add("glow");
+        leftIcon.style.border = "1px solid white";
     } else if (hour >= 11 && hour < 17) {
         topIcon.classList.add("glow");
+        topIcon.style.border = "1px solid white";
     } else if (hour >= 17 && hour < 21) {
         rightIcon.classList.add("glow");
+        rightIcon.style.border = "1px solid white";
     }
 
     const time = now.toLocaleTimeString();
@@ -87,10 +96,8 @@ function updateWeather(){
         .then(res => res.json())
         .then(data => {
             const code = data.current.weathercode;
-            // const temp = Math.round(data.current.temperature_2m);
-            // const weather = weatherIcons[code] ?? "Unknown";
-            const weather = weatherIcons[0];
-            const temp = 60;
+            const temp = Math.round(data.current.temperature_2m);
+            const weather = weatherIcons[code] ?? "Unknown";
 
             document.getElementById("weather").textContent = weather;
             document.getElementById("temp").textContent = `${temp}°F`;
