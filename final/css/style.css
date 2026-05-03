@@ -11,7 +11,6 @@ body {
     align-items: center;
     min-height: 100vh;
     font-family: sans-serif;
-    transition: background-image 0.4s ease;
     overflow: hidden;
 }
 
@@ -43,7 +42,7 @@ body {
 
 #temp{
     position: absolute;
-    font-size: 50px;
+    font-size: 55px;
     font-family:'Times New Roman', Times, serif;
     text-align: center;
     color: rgb(255, 252, 232);
@@ -51,10 +50,56 @@ body {
 
 #weather{
     position: absolute;
-    font-size: 40px;
+    font-size: 32px;
+    max-width: 200px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    top: 9%;
+    color: rgb(255, 252, 232);
+}
+
+#weatherEmoji{
+    position: absolute;
+    font-size: 110px;
+    top: 35%;
     text-align: center;
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 252, 232);
+}
+
+.hourglassRings{
+    transform-origin: 50% 50%; 
+}
+
+#hourglass{
+    position: absolute;
+    width: 42px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%; 
+    animation-delay: 0.5s;
+
+    animation: spinAndFlip 5s linear infinite;
+}
+
+.rings{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%; 
+    transition: transform 0.1s ease;
+    z-index: 1;
+
+    animation: spinAndFlip 5s linear infinite;
+}
+
+@keyframes spinAndFlip {
+    0%   { transform: translate(-50%, -50%) rotate(0deg)   scaleY(1); }
+    25%  { transform: translate(-50%, -50%) rotate(90deg)  scaleY(0); }
+    50%  { transform: translate(-50%, -50%) rotate(180deg) scaleY(1); }
+    75%  { transform: translate(-50%, -50%) rotate(270deg) scaleY(0); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) scaleY(1); }
 }
 
 /* Shapes */
@@ -112,7 +157,7 @@ body {
 .marks {
     position: absolute;
     width: 540px; 
-    z-index: 2;
+    z-index: 3;
 }
 
 .bg{
@@ -216,6 +261,11 @@ body {
     align-items: center;
     border: 2px solid #b17b1893;
     color:#eeeeee;
+    z-index: 2;
+
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
 }
 
 .dot.icon img {

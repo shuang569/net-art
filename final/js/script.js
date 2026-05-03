@@ -10,24 +10,45 @@ const bottomIcon = document.querySelector(".dot.bottom.icon");
 const degs = 0;
 
 const weatherIcons = {
-  0:  "☀️ Clear",
-  1:  "🌤️ Mostly Clear",
-  2:  "⛅ Partly Cloudy",
-  3:  "☁️ Overcast",
-  45: "🌫️ Foggy",
-  48: "🌫️ Icy Fog",
-  51: "🌦️ Light Drizzle",
-  53: "🌦️ Drizzle",
-  55: "🌧️ Heavy Drizzle",
-  61: "🌧️ Light Rain",
-  63: "🌧️ Rain",
-  65: "🌧️ Heavy Rain",
-  71: "🌨️ Light Snow",
-  73: "🌨️ Snow",
-  75: "❄️ Heavy Snow",
-  80: "🌦️ Rain Showers",
-  95: "⛈️ Thunderstorm",
-  99: "⛈️ Heavy Thunderstorm",
+  0:  "☀️",
+  1:  "🌤️",
+  2:  "⛅",
+  3:  "☁️",
+  45: "🌫️",
+  48: "🌫️",
+  51: "🌦️",
+  53: "🌦️",
+  55: "🌧️",
+  61: "🌧️",
+  63: "🌧️",
+  65: "🌧️",
+  71: "🌨️",
+  73: "🌨️",
+  75: "❄️",
+  80: "🌦️",
+  95: "⛈️",
+  99: "⛈️",
+};
+
+const weatherStatus = {
+  0:  "Clear",
+  1:  "Mostly Clear",
+  2:  "Partly Cloudy",
+  3:  "Overcast",
+  45: "Foggy",
+  48: "Icy Fog",
+  51: "Light Drizzle",
+  53: "Drizzle",
+  55: "Heavy Drizzle",
+  61: "Light Rain",
+  63: "Rain",
+  65: "Heavy Rain",
+  71: "Light Snow",
+  73: "Snow",
+  75: "Heavy Snow",
+  80: "Rain Showers",
+  95: "Thunderstorm",
+  99: "Heavy Thunderstorm",
 };
 
 function updateClock() {
@@ -80,15 +101,9 @@ function updateClock() {
     document.getElementById('date').textContent = date;
 }
 
-const MOCK_LOCATION = {
-  latitude: 39.9526,  
-  longitude: -75.1652
-};
-
 function updateWeather(){
     navigator.geolocation.getCurrentPosition((position) => {
-    // const { latitude, longitude } = position.coords;
-    const { latitude, longitude } = MOCK_LOCATION;
+    const { latitude, longitude } = position.coords;
 
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weathercode&temperature_unit=fahrenheit`;
 
@@ -98,7 +113,9 @@ function updateWeather(){
             const code = data.current.weathercode;
             const temp = Math.round(data.current.temperature_2m);
             const weather = weatherIcons[code] ?? "Unknown";
+            const weathStatus = weatherStatus[code] ?? "?";
 
+            document.getElementById("weatherEmoji").textContent = `${weathStatus}`;
             document.getElementById("weather").textContent = weather;
             document.getElementById("temp").textContent = `${temp}°F`;
       });
