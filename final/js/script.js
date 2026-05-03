@@ -39,14 +39,6 @@ function updateClock() {
     }
 }
 
-function updateGears() {
-    degs += 20;
-    gears.forEach(gear => {
-        gear.style.transform = `translate(-50%, -50%) rotate(${degs}deg)`;
-    });
-}
-
 updateClock();
 updateGears();
 setInterval(updateClock, 1000);
-setInterval(updateGears, 100);

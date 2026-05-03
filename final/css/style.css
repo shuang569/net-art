@@ -4,17 +4,18 @@
     box-sizing: border-box; }
 
 body {
-    background: #080808;
-    /* background-image: url("starry bg.jpeg"); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgb(12, 16, 36));
+    background-color: rgb(7, 7, 12);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: sans-serif;
     transition: background-image 0.4s ease;
+}
+
+.info{
+    color: white;
 }
 
 .shape {
@@ -35,6 +36,14 @@ body {
     width: 520px;
     height: 520px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-wrapper {
+    width: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,6 +85,8 @@ body {
     z-index: 1;
     opacity: 0.8;
 
+    animation: spinGear 18s linear infinite;
+
     filter:
         invert(1)
         brightness(.25)
@@ -83,6 +94,11 @@ body {
         saturate(500%)
         hue-rotate(10deg)
         contrast(1.1);
+}
+
+@keyframes spinGear {
+    0%   { transform: translate(-50%, -50%) rotate(0deg);   }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .dot {
@@ -198,62 +214,68 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background: linear-gradient(135deg, rgb(0, 0, 0), rgb(12, 16, 36));
-    background-color: rgb(7, 7, 12);
+    z-index: 0;
     overflow: hidden;
 }
 
 img.star1 {
     content: url("thin star.png");
+    position: absolute;
     animation: pulse 2s ease-in-out infinite;
-    position: absolute; }
-
-@keyframes pulse {
-    0% {transform: scale(80%);}
-    50% {transform: scale(5%);}
-    100% {transform: scale(80%);} }
-
-img.star1:hover {
-    transition: transform 0.3s ease;
-    animation: glint 1.5s ease infinite;
-    animation-delay: 0s }
-
+    cursor: pointer;
+}
+ 
 img.star1:active {
-    animation: spin 1s lienar infinite;
-    transition: transform 0.2s ease;
-    animation-delay: 0s }
-
-@keyframes glint {
-    0% {transform: scale(100%);}
-    50% {transform: scale(150%);}
-    100% {transform: scale(100%);} }
-
-@keyframes spin {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}}
-
+    animation: glint 1.5s ease infinite;
+}
+ 
+img.star1:hover {
+    animation: spin 1s linear infinite;
+}
+ 
 img.star2 {
     content: url("star1.png");
+    position: absolute;
     animation: pulse 1.5s ease-in-out infinite;
-    position: absolute; }
+    cursor: pointer;
+}
+ 
+img.star2:active {
+    animation: glint 1.5s ease infinite;
+}
+ 
+img.star2:hover {
+    animation: spin 1s linear infinite;
+}
 
 .shooting-star {
     content: url("star1.png");
     position: fixed;
     opacity: 0;
     animation: shoot 1.5s ease-in infinite;
-    animation-delay: 0s; }
-
+}
+ 
+@keyframes pulse {
+    0%   { transform: scale(80%); }
+    50%  { transform: scale(5%);  }
+    100% { transform: scale(80%); }
+}
+ 
+@keyframes glint {
+    0%   { transform: scale(100%); }
+    50%  { transform: scale(150%); }
+    100% { transform: scale(100%); }
+}
+ 
+@keyframes spin {
+    0%   { transform: rotate(0deg);   }
+    100% { transform: rotate(360deg); }
+}
+ 
 @keyframes shoot {
-    0% {opacity: 0;
-        transform: rotate(18deg) translateX(0px) scale(0.6);}
-    10% {opacity: 1; }
-    30% {opacity: 0;
-        transform: rotate(25deg) translateX(350px) scale(0.1);}
-    100% {opacity: 0;
-        transform: rotate(25deg) translateX(350px) scale(0.1);} }
-
-body:hover .shooting-star {
-    animation-play-state: running;
-    animation: shoot 1.5s ease-in infinite; }
+    0%   { opacity: 0; transform: rotate(18deg) translateX(0px)   scale(0.6); }
+    10%  { opacity: 1; }
+    30%  { opacity: 0; transform: rotate(25deg) translateX(350px) scale(0.1); }
+    100% { opacity: 0; transform: rotate(25deg) translateX(350px) scale(0.1); }
+}
+ 
