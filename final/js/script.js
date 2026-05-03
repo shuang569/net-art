@@ -112,12 +112,12 @@ function updateWeather(){
         .then(data => {
             const code = data.current.weathercode;
             const temp = Math.round(data.current.temperature_2m);
-            const weather = weatherIcons[code] ?? "Unknown";
+            const weatherEmoji = weatherIcons[code] ?? "Unknown";
             const weathStatus = weatherStatus[code] ?? "?";
 
-            document.getElementById("weatherEmoji").textContent = `${weathStatus}`;
-            document.getElementById("weather").textContent = weather;
-            document.getElementById("temp").textContent = `${temp}°F`;
+            document.getElementById("weatherEmoji").textContent = `${weatherEmoji}`;
+            document.getElementById("weather").textContent = weathStatus;
+            document.getElementById("temp").textContent = `${temp} °F`;
       });
   });
 }
