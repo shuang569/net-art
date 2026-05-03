@@ -41,6 +41,22 @@ body {
     padding: 6px 16px;
 }
 
+#temp{
+    position: absolute;
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    color: rgb(255, 252, 232);
+}
+
+#weather{
+    position: absolute;
+    font-size: 40px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(255, 252, 232);
+}
+
 /* Shapes */
 .shape {
     width: 80px;
@@ -99,10 +115,19 @@ body {
     z-index: 2;
 }
 
-.bgCircle {
+.bg{
     position: absolute;
-    width: 1066px; 
-    z-index: 2;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%; 
+
+    filter:
+        invert(1)
+        brightness(.25)
+        sepia(1)
+        saturate(500%)
+        hue-rotate(10deg)
+        contrast(1.1);
 }
 
 .gear {
@@ -124,6 +149,19 @@ body {
         saturate(500%)
         hue-rotate(10deg)
         contrast(1.1);
+}
+
+/* Gear wrapper */
+.dot.border {
+    width: 520px;
+    height: 520px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: 2px solid #d4d4d4;
+
+    animation: spinGear 60s linear infinite;
 }
 
 @keyframes spinGear {
@@ -168,16 +206,6 @@ body {
     background: linear-gradient(to top, black 50%, #eeeeee 50%);
 }
 
-.dot.border {
-    width: 520px;
-    height: 520px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: none;
-    border: 2px solid #d4d4d4;
-}
-
 .dot.icon {
     background: rgb(27, 27, 27);
     width: 100px;
@@ -186,6 +214,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid #b17b1893;
+    color:#eeeeee;
 }
 
 .dot.icon img {

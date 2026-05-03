@@ -9,6 +9,27 @@ const rightIcon = document.querySelector(".dot.right.icon");
 const bottomIcon = document.querySelector(".dot.bottom.icon");
 const degs = 0;
 
+const weatherIcons = {
+  0:  "☀️ Clear",
+  1:  "🌤️ Mostly Clear",
+  2:  "⛅ Partly Cloudy",
+  3:  "☁️ Overcast",
+  45: "🌫️ Foggy",
+  48: "🌫️ Icy Fog",
+  51: "🌦️ Light Drizzle",
+  53: "🌦️ Drizzle",
+  55: "🌧️ Heavy Drizzle",
+  61: "🌧️ Light Rain",
+  63: "🌧️ Rain",
+  65: "🌧️ Heavy Rain",
+  71: "🌨️ Light Snow",
+  73: "🌨️ Snow",
+  75: "❄️ Heavy Snow",
+  80: "🌦️ Rain Showers",
+  95: "⛈️ Thunderstorm",
+  99: "⛈️ Heavy Thunderstorm",
+};
+
 function updateClock() {
     const now = new Date();
     const hours = now.getHours() % 12;
@@ -37,10 +58,7 @@ function updateClock() {
     } else if (hour >= 17 && hour < 21) {
         rightIcon.classList.add("glow");
     }
-}
 
-function updateDate(){
-    const now = new Date();
     const time = now.toLocaleTimeString();
     const date = now.toLocaleDateString('en-US', {
         weekday: 'long',
@@ -53,7 +71,34 @@ function updateDate(){
     document.getElementById('date').textContent = date;
 }
 
+const MOCK_LOCATION = {
+  latitude: 39.9526,  
+  longitude: -75.1652
+};
+
+function updateWeather(){
+    navigator.geolocation.getCurrentPosition((position) => {
+    // const { latitude, longitude } = position.coords;
+    const { latitude, longitude } = MOCK_LOCATION;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weathercode&temperature_unit=fahrenheit`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            const code = data.current.weathercode;
+            // const temp = Math.round(data.current.temperature_2m);
+            // const weather = weatherIcons[code] ?? "Unknown";
+            const weather = weatherIcons[0];
+            const temp = 60;
+
+            document.getElementById("weather").textContent = weather;
+            document.getElementById("temp").textContent = `${temp}°F`;
+      });
+  });
+}
 
 updateClock();
+updateWeather();
 setInterval(updateClock, 1000);
-setInterval(updateDate, 1000);
+setInterval(updateWeather, 1000);
