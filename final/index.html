@@ -106,29 +106,32 @@
             <div id="date">Date</div>
             <div id="time">Time</div>
         </div>
-        <div class="shape circle">
-            <img class="clock-hand" src="css/clock_hand.png">
-            <img class="smallclock-hand" src="css/small_clock_hand.png">
+
+        <div class="clockContainer">
+            <img id="clock-face" src="css/starry bg.jpeg">
+            <img id="clock-hand" src="css/clock_hand.png">
+            <img id="smallclock-hand" src="css/small_clock_hand.png">
             <img class="marks" src="css/clock_marks.png">
-            <img class="marks" src="css/clock_marks2.png" style="opacity: 50%;">
-            <div class="dot border" style="width: 483px; height: 483px; overflow: hidden;">
+            <img class="marks" src="css/clock_marks2.png" style="opacity: 70%; z-index: 2;">
+            <img id="rainbow" src="css/color circle.png">
+            <div class="dot border" style="width: 483px; height: 483px; overflow: hidden; z-index: 3;">
                 <img class="gear" style="width: 100px; height: 100px;" src="css/gear2.png">
-                <img class="gear" style="top: 72%; left: 20.8%; width: 330px; height: 330px;" src="css/gear1.png">
-                <img class="gear" style="top: 35%; left: 60%; width: 450px; height: 450px;" src="css/gear1.png">
-                <img class="gear" style="top: 80.2%; left: 90%; width: 200px; height: 200px;" src="css/gear2.png">
-                <img class="gear" style="top: 10%; left: 80%; width: 300px; height: 300px;" src="css/gear2.png">
+                <img class="gear" style="top: 72%; left: 20.8%; width: 330px; height: auto;" src="css/gear1.png">
+                <img class="gear" style="top: 35%; left: 60%; width: 450px; height: auto;" src="css/gear1.png">
+                <img class="gear" style="top: 80.2%; left: 90%; width: 200px; height: auto;" src="css/gear2.png">
+                <img class="gear" style="top: 10%; left: 80%; width: 300px; height: auto;" src="css/gear2.png">
                 
                 <img class="gear" style="top: 75%; left: 80%; width: 700px; height: 700px;" src="css/circles2.png">
                 <img class="gear" style="top: 55%; left: 60%; width: 200px; height: 200px;" src="css/circles.png">
                 
             </div>
-
+        
             <img src="css/bgCircle.png" style="position: absolute; width: 1066px; z-index: -1;">
 
             <div class="dot icon" style="top: -35%; left: -35%; width: 200px; height: 200px;"> 
                 <div id="temp"> temperature </div>
             </div>
-            <img class="gear" style="top: -14%; left: -14%; width: 230px; height: 230px;" src="css/circles2.png">
+            <img class="gear" style="top: -14%; left: -14%; width: 230px; height: auto; z-index: -1;" src="css/circles2.png">
             <div class="dot icon" style="top: 90%; left: 90%; width: 300px; height: 300px;"> 
                 <div id="weather"> weather </div>
                 <div id="weatherEmoji"> Emoji </div>
@@ -143,10 +146,12 @@
                     <img class="rings" src="css/ring1.png" style="width: 120px; height: auto; animation-delay: 1.5s;">
                 </div>
             </div>
-            <img class="gear" style="top: -0.5%; left: 101.5%; width: 170px; height: 170px; z-index: -1;" src="css/circles3.png">
+            <img class="gear" style="top: -0.5%; left: 101.5%; width: 170px; height: auto; z-index: -1;" src="css/circles3.png">
 
-            <div class="dot icon" style="top: 77.5%; left: -2.5%; width: 130px; height: 130px; z-index: -1;"></div>
-            <img class="gear" style="top: 90%; left: 10%; width: 140px; height: 140px; z-index: -2;" src="css/circles3.png">
+            <div class="dot icon" style="top: 79%; left: 0%; width: 110px; height: 110px; z-index: 1;">
+                <div id="moon"><div id="moon" style="background-color: black; animation: moonPhase 4s linear infinite;"></div></div>
+            </div>
+            <img class="gear" style="top: 89.5%; left: 10.55%; width: 125px; height: auto; z-index: -1;" src="css/circles3.png">
 
             <div class="dot top"></div>
             <div class="dot right"></div>
@@ -158,6 +163,25 @@
             <div class="dot left icon yellow" style="left: -25%;"><img src="css/sunrise.png"></div>
             <div class="dot bottom icon blue" style="bottom: -25%;"><img src="css/moon.png"></div>
         </div>
+
+        <div class="solarSys" style="z-index: 0;">
+            <div class="orbit-wrapper" style= "animation-duration: 10s;">
+                <div class="dot planet" style="width: 7px; height: 7px; background-color: rgb(230, 71, 8); top: 280px;"></div>
+                </div>
+            <div class="orbit-wrapper" style= "animation-duration: 25s; animation-delay: -5s;">
+                <div class="dot planet" style="width: 35px; height: 35px; background-color: rgb(243, 176, 77); top: 325px;"></div>
+                </div>
+            <div class="orbit-wrapper" style="animation-duration: 20s; animation-delay: -17s;">
+                <div class="dot planet" style="width: 20px; height: 20px; background-color: rgb(219, 185, 134); top: 385px;"></div>
+                </div>
+            <div class="orbit-wrapper" style="animation-duration: 30s; animation-delay: -12s;">
+                <div class="dot planet" style="width: 10px; height: 10px; background-color: rgb(54, 174, 255); top: 450px;"></div>
+                </div>
+            <div class="orbit-wrapper" style="animation-duration: 35s; animation-delay: -20s;">
+                <div class="dot planet" style="width: 1cqh; height: 10px; background-color: rgb(39, 79, 255); top: 510px;"></div>
+                </div>
+        </div>
+        
     </div>
     
     

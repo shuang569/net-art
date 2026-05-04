@@ -18,7 +18,7 @@ body {
     color: rgb(255, 252, 232);
     font-size: 50px;
     font-family:'Times New Roman', Times, serif;
-    z-index: 3;
+    z-index: 15;
 }
 
 #date{
@@ -52,16 +52,20 @@ body {
     position: absolute;
     font-size: 32px;
     max-width: 200px;
+    height: 64px;
     text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
     font-family:'Times New Roman', Times, serif;
-    top: 9%;
+    top: 15%;
     color: rgb(255, 252, 232);
 }
 
 #weatherEmoji{
     position: absolute;
     font-size: 110px;
-    top: 35%;
+    top: 40%;
     text-align: center;
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 252, 232);
@@ -103,21 +107,15 @@ body {
 }
 
 /* Shapes */
-.shape {
+.clockContainer {
     width: 80px;
     height: 80px;
     position: relative;
-    background-image: url("starry bg.jpeg");
-    background-size: cover;    
-    background-position: center; 
-    background-repeat: no-repeat;
     display: inline-block;
+    color: white;
     margin: 10px;
-}
 
-.circle {
     border-radius: 50%;
-    position: relative;
     width: 520px;
     height: 520px;
 
@@ -134,24 +132,39 @@ body {
     align-items: center;
 }
 
-.clock-hand {
+#clock-face{
+    background-image: url("starry bg.jpeg");
+    background-size: cover;    
+    background-position: center; 
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: 520px;
+    height: 520px;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clock-hand {
     position: absolute;
     width: 95px;
     transform-origin: 50% 17.3%;  
     top: 40.6%;
     left: 40.7%;
     transition: transform 0.3s ease;
-    z-index: 10;
+    z-index: 9;
 }
 
-.smallclock-hand {
+#smallclock-hand {
     position: absolute;
     width: 70px;
     transform-origin: 50% 17.3%;  
     top: 43.3%;
     left: 43.2%;
     transition: transform 0.3s ease;
-    z-index: 9;
+    z-index: 10;
 }
 
 .marks {
@@ -182,18 +195,51 @@ body {
     transform: translate(-50%, -50%);
     transform-origin: 50% 50%; 
     transition: transform 0.1s ease;
-    z-index: 1;
+    z-index: 2;
     opacity: 0.8;
 
     animation: spinGear 18s linear infinite;
 
     filter:
         invert(1)
-        brightness(.25)
+        brightness(.35)
         sepia(1)
         saturate(500%)
         hue-rotate(10deg)
         contrast(1.1);
+}
+
+#rainbow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%; 
+    transition: transform 0.1s ease;
+    z-index: 1;
+    width: 530px;
+    height: auto;
+    z-index: 1;
+
+    animation: spinGear 20s linear infinite;
+
+    filter: brightness(1.5)
+    contrast(.7)
+}
+
+#moon{
+    position: absolute;
+    border-radius: 50%;
+    width: 80px; 
+    height: 80px;
+    background-color: #eeeeee;  
+    overflow: hidden;
+    z-index: 3;
+}
+
+@keyframes moonPhase {
+    0%   { transform: translate(-90%, -90%);   }
+    100% { transform: translate(90%, 90%); }
 }
 
 /* Gear wrapper */
@@ -221,9 +267,35 @@ body {
     background: #eeeeee;
     border-radius: 50%;
     border: 2px solid #eeeeee;
+    z-index: 1;
 }
 
 /* dot stuff */
+.orbit-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    animation: orbit 8s linear infinite;
+    z-index: 1;
+}
+
+.dot.planet{
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(209, 60, 1);
+    transform: translate(-50%, -50%);
+    border: none;
+    position: absolute;
+    top: 400px;
+}
+
+@keyframes orbit {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .dot.top {
     top: -4%;
     left: 50%;
@@ -261,7 +333,7 @@ body {
     align-items: center;
     border: 2px solid #b17b1893;
     color:#eeeeee;
-    z-index: 2;
+    z-index: 3;
 
     display: flex; 
     flex-direction: column; 
